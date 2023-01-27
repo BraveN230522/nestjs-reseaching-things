@@ -20,13 +20,13 @@ import { UsersService } from './users.service';
 
 @Controller('users')
 // @UseGuards(AuthGuard())
-@UseGuards(AuthGuard(), RolesGuard)
+// @UseGuards(AuthGuard(), RolesGuard)
 @RoleDecorator(Role.SUPER_ADMIN)
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Get()
-  @RoleDecorator(Role.USER, Role.ADMIN)
+  // @RoleDecorator(Role.USER, Role.ADMIN)
   getUsers(@Query() filterUserDto: FilterUserDto) {
     return this.usersService.getUsers(filterUserDto);
   }

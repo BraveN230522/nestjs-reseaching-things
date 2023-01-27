@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { NestHttpModule } from './common/http/http.module';
 import { AppConfigModule } from './configuration';
 import { DatabaseModule } from './database';
 import { AdminModule } from './modules/admin/admin.module';
@@ -7,6 +8,14 @@ import { CloudsModule } from './modules/clouds/clouds.module';
 import { UsersModule } from './modules/users/users.module';
 
 @Module({
-  imports: [UsersModule, AdminModule, AuthModule, DatabaseModule, AppConfigModule, CloudsModule],
+  imports: [
+    UsersModule,
+    AdminModule,
+    AuthModule,
+    DatabaseModule,
+    AppConfigModule,
+    CloudsModule,
+    NestHttpModule,
+  ],
 })
 export class AppModule {}
