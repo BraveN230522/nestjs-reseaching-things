@@ -5,6 +5,7 @@ import { DatabaseModule } from './database';
 import { AdminModule } from './modules/admin/admin.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { CloudsModule } from './modules/clouds/clouds.module';
+import { EmailsModule } from './modules/emails/emails.module';
 import { UsersModule } from './modules/users/users.module';
 
 @Module({
@@ -16,6 +17,7 @@ import { UsersModule } from './modules/users/users.module';
     AppConfigModule,
     CloudsModule,
     NestHttpModule,
+    EmailsModule,
   ],
 })
 export class AppModule {}
