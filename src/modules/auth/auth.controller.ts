@@ -2,10 +2,16 @@ import {
   Body,
   ClassSerializerInterceptor,
   Controller,
+  Get,
+  HttpStatus,
   Post,
+  Req,
+  UseGuards,
   UseInterceptors,
   ValidationPipe,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+import { UserDecorator } from '../../common';
 // import { AdminGuard } from '@nestjs/passport';
 import { Admin } from '../entities/admin.entity';
 import { User } from '../entities/users.entity';
@@ -27,5 +33,25 @@ export class AuthController {
     @Body(new ValidationPipe({ transform: true })) adminCredentialsDto: AdminCredentialsDto,
   ): Promise<User> {
     return this.adminService.loginUser(adminCredentialsDto);
+  }
+
+  @Get('/facebook')
+  @UseGuards(AuthGuard('facebook'))
+  async facebookLogin(): Promise<any> {
+    console.log(HttpStatus.OK);
+    return HttpStatus.OK;
+  }
+
+  @Get('/facebook/redirect')
+  @UseGuards(AuthGuard('facebook'))
+  async facebookLoginRedirect(@UserDecorator() user): Promise<any> {
+    console.log({
+      statusCode: HttpStatus.OK,
+      data: user,
+    });
+    return {
+      statusCode: HttpStatus.OK,
+      data: user,
+    };
   }
 }

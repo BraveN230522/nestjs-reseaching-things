@@ -1,4 +1,4 @@
-export * from './jwt';
+export * from './strategies';
 export * from './decorators';
 export * from './transformers';
 export * from './filters';

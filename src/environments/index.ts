@@ -16,6 +16,9 @@ export const SMTP_PORT: number = Number(process.env.SMTP_PORT) || 587;
 export const SMTP_USER = process.env.SMTP_USER || NEED_TO_CONFIGURED;
 export const SMTP_PASSWORD = process.env.SMTP_PASSWORD || NEED_TO_CONFIGURED;
 
+export const FB_APP_ID = process.env.FB_APP_ID || NEED_TO_CONFIGURED;
+export const FB_APP_SECRET = process.env.FB_APP_SECRET || NEED_TO_CONFIGURED;
+
 // export const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY;
 // export const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID;
 // export const AWS_ENDPOINT = process.env.AWS_ENDPOINT;
